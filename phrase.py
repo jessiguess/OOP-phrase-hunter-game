@@ -4,7 +4,22 @@ class Phrase():
         
     def display(self, guesses):
         for letter in self.phrase:
-            if guesses == letter:
-                print(f"{letter}", end="")
+            if letter in guesses:
+                print(f"{letter} ", end="")
+            elif letter == " ":
+                print("  ", end="")
             else:
-                print("_ ")
+                print("_ ", end="")
+                
+    def check_guess(self, guess):
+        if guess in self.phrase:
+            return True
+        else:
+            return False
+        
+    def check_complete(self, guesses):
+        for letter in self.phrase:
+            if str(letter) not in guesses:
+                return False
+        return True
+            
